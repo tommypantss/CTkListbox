@@ -61,6 +61,9 @@ class CTkListbox(customtkinter.CTkScrollableFrame):
             self.update_listvar()
         
         super().bind("<Destroy>", lambda e: self.unbind_all("<Configure>"))
+
+    # Fix for light mode title being hard to see
+        self.configure(title_color="black")
         
     def update_listvar(self):
         values = list(eval(self.listvariable.get()))
